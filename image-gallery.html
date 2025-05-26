@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sleek Image Slideshow</title>
+  <style>
+    body {
+
+      background: #111;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .slideshow-container {
+      position: relative;
+      max-width: 800px;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+    .slide {
+      display: none;
+      width: 100%;
+      height: auto;
+      animation: fade 1s ease-in-out;
+    }
+    @keyframes fade {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 16px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 18px;
+      transition: background 0.3s;
+      z-index: 1;
+    }
+    .nav-button:hover {
+      background: rgba(0,0,0,0.8);
+    }
+    .prev {
+      left: 10px;
+    }
+    .next {
+      right: 10px;
+    }
+    .counter {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      color: white;
+      font-size: 14px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slideshow-container">
+    <img class="slide" src="https://th.bing.com/th/id/OIP.jHvTOSF7924Ah63W7mozxQHaEo?rs=1&pid=ImgDetMain" />
+    <img class="slide" src="https://th.bing.com/th/id/OIP.th9PP5ztJug6QUp1lY0-BwHaEK?rs=1&pid=ImgDetMain" />
+    <img class="slide" src="https://th.bing.com/th/id/OIP.rvSWtRd_oPRTwDoTCmkP5gHaE8?rs=1&pid=ImgDetMain" />
+    <img class="slide" src="https://th.bing.com/th/id/OIP.KjTOQhgffUjF7Bvf0EoM8gHaEK?pid=ImgDet&w=474&h=266&rs=1" />
+    <button class="nav-button prev" onclick="changeSlide(-1)">❮</button>
+    <button class="nav-button next" onclick="changeSlide(1)">❯</button>
+    <div class="counter">1 / 4</div>
+  </div>
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.querySelector('.counter'); 
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.display = i === index ? 'block' : 'none';
+      });
+      counter.textContent = `${index + 1} / ${slides.length}`;
+    }
+    function changeSlide(direction) {
+      currentSlide = (currentSlide + direction + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>

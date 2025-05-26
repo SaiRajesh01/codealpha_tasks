@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<title>demo</title>
+<meta charset="UTF-8">
+<style type="text/css">
+ body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #d2abf5, #7ebaf7);
+      height: 100vh;
+    }
+    table, tr, td {
+      border-collapse: collapse;
+      border-style: none;
+    }
+    .dl {
+      background: linear-gradient(to bottom right, #ffe0b2, #ffccbc);
+      width: 250px;
+      padding: 30px;
+      margin-left: 40% ;
+      box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      color: #2c3e50;
+      position: absolute;
+      top: 110px;
+    }
+    input{
+      width: 90%;
+      padding: 12px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      margin-left: 8px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    #style > input {
+      width: 55px;
+      height: 45px;
+      margin-left: 18px;
+      font-size: 25px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background-color: #f0f0f0;
+      transition: background-color 0.3s ease;
+
+    }
+    #style > input:hover {
+      background-color: #d1d8e0;
+    }
+</style>
+</head>
+<body>
+<form name="fml">
+<div class="dl">
+<table>
+<tr>
+<td>
+    <label for="a val"> </label><input type="number"id="v1" name="a val"placeholder="Enter value a"required autofocus>
+</td>
+</tr>
+<tr>
+<td>
+    <label for="b val"></label><input type="number"id="v2" name="b val"placeholder="Enter value b"required autofocus>
+</td>
+</tr>
+<tr>
+<td>
+    <label for="c val"></label><input type="number"id="v3" name="c val"placeholder="Result"required autofocus>
+</td>
+</tr>
+<tr>
+<td id="style">
+<input type="button"value="+" onclick="mysum()">
+<input type="button"value="-" onclick="mysub()">
+<input type="button"value="*" onclick="mymul()"><br><br>
+<input type="button"value="/" onclick="mydiv()">
+<input type="button"value="%" onclick="mymod()">
+<input type="button"value="<-" onclick="reset()">
+</td>
+</tr>
+</table>
+</div>
+</form>
+<script type="text/javascript">
+function mysum()
+{
+    a=parseInt(document.getElementById("v1").value)
+    b=parseInt(document.getElementById("v2").value)
+    c=a+b
+    document.getElementById("v3").value=c
+}
+function mysub()
+{
+    a=parseInt(document.getElementById("v1").value)
+    b=parseInt(document.getElementById("v2").value)
+    c=a-b
+    document.getElementById("v3").value=c;
+}
+function mymul()
+{
+    a=parseInt(document.getElementById("v1").value);
+    b=parseInt(document.getElementById("v2").value);
+    c=a*b;
+    document.getElementById("v3").value=c;
+}
+function mymod()
+{
+    a=parseInt(document.getElementById("v1").value);
+    b=parseInt(document.getElementById("v2").value);
+    c=a%b;
+    document.getElementById("v3").value=c;
+}
+function mydiv()
+{
+a=parseInt(document.getElementById("v1").value);
+b=parseInt(document.getElementById("v2").value);
+c=a/b;
+document.getElementById("v3").value=c;
+}
+function myreset()
+{
+document.getElementById("v1").value="";
+document.getElementById("v2").value="";
+document.getElementById("v3").value="";
+}
+</script>
+</body>
+</html>
